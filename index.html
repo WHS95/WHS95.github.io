@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Dividend Calculator</title>
+    <link rel="stylesheet" type="text/css" href="dark-mode.css" id="dark-mode">
+    <link rel="stylesheet" type="text/css" href="style.css" />
+
+  </head>
+  <body>
+    <button onclick="toggleDarkMode()">Toggle Dark Mode</button>
+
+    <div class="container">
+      <h1>SCHD Dividend Calculator</h1>
+      <form>
+        <label for="currency">Select currency</label>
+        <select id="currency" name="currency" onchange="toggleExchangeRate()">
+          <option value="USD">$ USD</option>
+          <option value="KRW">₩ KRW</option>
+        </select>
+        <br />
+        <div id="odds">
+          <label for="dividendRate">Enter dividend rate</label>
+          <input
+            type="number"
+            id="dividendRate"
+            name="dividendRate"
+            step="0.1"
+            value="3.0"
+          />
+        </div>
+        <button onclick="window.open('https://finance.yahoo.com/quote/SCHD?p=SCHD')">SCHD dividend rate check</button>
+        
+        <div id="exchangeRateContainer" style="display: none">
+          <label for="exchangeRate">Enter exchange rate</label>
+          <input
+            type="number"
+            id="exchangeRate"
+            name="exchangeRate"
+            value="1000"
+            step="10"
+          />
+        </div>
+        <br />
+        <label for="investmentAmount">Enter investment amount</label>
+        <input type="text" id="investmentAmount" name="investmentAmount" placeholder="input your investment"/>
+        <button type="button" onclick="calculateDividend()">Calculate</button>
+      </form>
+      <div id="result"></div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
